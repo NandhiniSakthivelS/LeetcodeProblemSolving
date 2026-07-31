@@ -1,0 +1,18 @@
+class Solution {
+    public String removeTrailingZeros(String num) {
+        StringBuilder sb = new StringBuilder(num);
+        for(int i=num.length()-1;i>=0;i--)
+        {
+            char ch=num.charAt(i);
+            if(ch=='0')
+            {
+               sb.deleteCharAt(i);
+            }
+            else
+            {
+                return sb.toString();
+            }
+        }
+        return sb.toString();
+    }
+}
