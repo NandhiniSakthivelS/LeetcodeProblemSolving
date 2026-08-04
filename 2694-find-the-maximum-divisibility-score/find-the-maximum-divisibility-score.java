@@ -1,21 +1,19 @@
 class Solution {
     public int maxDivScore(int[] nums, int[] divisors) {
-        int maxScore = -1;
-        int ans = Integer.MAX_VALUE;
-        //int currentScore = 0;
-        for (int d : divisors) {
-            int currentScore = 0;
-            for (int n : nums) {
-                if (n % d == 0) {
-                    currentScore++;
-                }
+        Arrays.sort(divisors);
+        int max=Integer.MIN_VALUE;
+        int ans=0;
+        for(int x : divisors)
+        {
+            int count=0;
+            for(int y : nums)
+            {
+                if(y%x==0)count++;
             }
-            
-            if (currentScore > maxScore) {
-                maxScore = currentScore;
-                ans = d;
-            } else if (currentScore == maxScore) {
-                ans = Math.min(ans, d);
+            if(max<count)
+            {
+                max=count;
+                ans=x;
             }
         }
         return ans;
